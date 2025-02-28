@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGT Analysis & Engmt Module</title>
+    <title>TGT Analysis & Engagement Module</title>
     <link rel="stylesheet" href="styles.css">
     <script src="TGT.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,7 +21,7 @@
         </div>
         
         <div class="tables-container">
-            <table>
+            <table id="tgt-rcvd-table">
                 <tr>
                     <th rowspan="2">CAT</th>
                     <th colspan="4">TGT RECD</th>
@@ -41,7 +42,7 @@
             </table>
         </div>
         
-        <table class="bottom-table">
+        <table class="bottom-table" id="tgt-engaged-table">
             <tr>
                 <th>SELECT TGTS</th>
                 <th>S NO</th>
@@ -85,6 +86,8 @@
             <tr><td><input type="checkbox"></td><td>27</td><td>FMN3</td><td>8</td><td>SUB AR</td><td>TOTA</td><td>3</td><td>AIR</td><td>ABY</td><td>HE</td><td></td><td></td></tr>
             <tr><td><input type="checkbox"></td><td>28</td><td>FMN4</td><td>9</td><td>HQ</td><td>HQ SUB</td><td>7</td><td>AIR</td><td>AVT</td><td>HE</td><td></td><td></td></tr>
         </table>
+
+        <button class="export-button" onclick="exportTablesToExcel()">Export to Excel</button>
     </div>
 </body>
 </html>
