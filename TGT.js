@@ -24,7 +24,11 @@ function calculateTgtListCounts() {
 
     updateTable(counts);
 }
-
+/**
+ * Updates the table with the provided counts.
+ * 
+ * @param {object} counts - The counts object containing the LRV, GUNS, and AIR values for each target list.
+ */
 function updateTable(counts) {
     const tableRows = document.querySelectorAll('.tables-container table tr');
     let totalLRV = 0, totalGUNS = 0, totalAIR = 0;
@@ -54,7 +58,9 @@ function updateTable(counts) {
     totalRow[3].innerText = totalAIR;
     totalRow[4].innerText = totalLRV + totalGUNS + totalAIR;
 }
-
+/**
+ * Update engaged counts based on the selected checkboxes in the bottom table.
+ */
 function updateEngagedCounts() {
     const rows = document.querySelectorAll('.bottom-table tr');
     const engagedCounts = {};
@@ -84,7 +90,11 @@ function updateEngagedCounts() {
 
     updateEngagedTable(engagedCounts);
 }
-
+/**
+ * Updates the engaged table with the provided engaged counts.
+ *
+ * @param {Object} engagedCounts - Object containing the engaged counts for each target list.
+ */
 function updateEngagedTable(engagedCounts) {
     const tableRows = document.querySelectorAll('.tables-container table tr');
     let totalLRV = 0, totalGUNS = 0, totalAIR = 0;
@@ -125,6 +135,47 @@ function addCheckboxListeners() {
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateEngagedCounts);
     });
+}
+/**
+ * Exports the tables to an Excel file.
+ */
+function exportTablesToExcel() {
+    const tgtRcvdTable = document.getElementById('tgt-rcvd-table');
+    const tgtEngagedTable = document.getElementById('tgt-engaged-table');
+
+    const wb = XLSX.utils.book_new();
+
+    // Convert TGT RCVD table to worksheet
+    const tgtRcvdWs = XLSX.utils.table_to_sheet(tgtRcvdTable);
+    XLSX.utils.book_append_sheet(wb, tgtRcvdWs, 'TGT RCVD');
+
+    // Filter selected rows from TGT ENGAGED table
+    const selectedRows = [];
+    const rows = tgtEngagedTable.querySelectorAll('tr');
+    rows.forEach((row, index) => {
+        if (index === 0) {
+            // Add header row
+            selectedRows.push(row);
+        } else {
+            const checkbox = row.querySelector('input[type="checkbox"]');
+            if (checkbox && checkbox.checked) {
+                selectedRows.push(row);
+            }
+        }
+    });
+
+    // Create a new table element for selected rows
+    const selectedTable = document.createElement('table');
+    selectedRows.forEach(row => {
+        selectedTable.appendChild(row.cloneNode(true));
+    });
+
+    // Convert selected rows table to worksheet
+    const tgtEngagedWs = XLSX.utils.table_to_sheet(selectedTable);
+    XLSX.utils.book_append_sheet(wb, tgtEngagedWs, 'TGT ENGAGED');
+
+    // Export the workbook and trigger download
+    XLSX.writeFile(wb, 'TGT_Analysis.xlsx');
 }
 
 // Call the function to calculate and update the table on page load
