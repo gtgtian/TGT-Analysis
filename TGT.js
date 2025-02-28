@@ -87,6 +87,7 @@ function updateEngagedCounts() {
 
 function updateEngagedTable(engagedCounts) {
     const tableRows = document.querySelectorAll('.tables-container table tr');
+    let totalLRV = 0, totalGUNS = 0, totalAIR = 0;
 
     tableRows.forEach((row, index) => {
         if (index < 2) return; // Skip header rows
@@ -99,6 +100,10 @@ function updateEngagedTable(engagedCounts) {
             cells[6].innerText = engagedCounts[tgtList].GUNS;
             cells[7].innerText = engagedCounts[tgtList].AIR;
             cells[8].innerText = engagedCounts[tgtList].LRV + engagedCounts[tgtList].GUNS + engagedCounts[tgtList].AIR;
+
+            totalLRV += engagedCounts[tgtList].LRV;
+            totalGUNS += engagedCounts[tgtList].GUNS;
+            totalAIR += engagedCounts[tgtList].AIR;
         } else {
             cells[5].innerText = 0;
             cells[6].innerText = 0;
@@ -106,6 +111,13 @@ function updateEngagedTable(engagedCounts) {
             cells[8].innerText = 0;
         }
     });
+
+    // Update the TOTAL row for engaged counts
+    const totalRow = tableRows[tableRows.length - 1].querySelectorAll('td');
+    totalRow[5].innerText = totalLRV;
+    totalRow[6].innerText = totalGUNS;
+    totalRow[7].innerText = totalAIR;
+    totalRow[8].innerText = totalLRV + totalGUNS + totalAIR;
 }
 
 function addCheckboxListeners() {
