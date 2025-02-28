@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top-buttons button {
+    padding: 10px;
+    background: #8b0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tables-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+table {
+    width: 65%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #8b0000;
+    color: white;
+}
+
+.engmt-capb {
+    width: 20%;
+    border-collapse: collapse;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bottom-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.export-button {
+    margin-top: 20px;
+    padding: 10px;
+    background: #006400;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
