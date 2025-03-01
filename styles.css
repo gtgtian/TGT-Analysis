@@ -33,9 +33,27 @@ body::before {
 }
 
 .header {
-    font-size: 24px;
+    font-size: 40px; /* Updated font size */
     font-weight: bold;
     margin-bottom: 10px;
+    color: #333; /* Updated text color */
+    font-family: 'Papyrus', 'fantasy'; /* Specific fonts */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1.5px; /* Spacing between letters */
+}
+
+.sub-header {
+    font-size: 25px; /* Updated font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white; /* Updated text color to white */
+    font-family: 'Impact', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Specific fonts */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1.5px; /* Spacing between letters */
+    background: #8b0000; /* Maroon background color */
+    padding: 10px; /* Padding inside the border */
+    display: inline-block; /* Ensure the border wraps around the text */
+    border-radius: 5px; /* Rounded corners to match the buttons */
 }
 
 .top-buttons {
