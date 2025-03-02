@@ -47,7 +47,7 @@ body::before {
     font-weight: bold;
     margin-bottom: 10px;
     color: white; /* Updated text color to white */
-    font-family: 'Impact', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Specific fonts */
+    font-family: "Roboto", sans-serif;  /* Specific fonts */
     text-transform: uppercase; /* Uppercase text */
     letter-spacing: 3.5px; /* Spacing between letters */
     background: #8b0000; /* Maroon background color */
