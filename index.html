@@ -6,6 +6,7 @@
     <title>TGT Analysis & Engagement Module</title>
     <link rel="stylesheet" href="styles.css">
     <script src="TGT.js" defer></script>
+    <script src="upload.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -16,9 +17,9 @@
             <button>D DAY</button>
             <button>D + 1</button>
             <button>+</button>
-            <button>EXPORT LRV TGT</button>
+            <!-- <button>EXPORT LRV TGT</button>
             <button>EXPORT AIR TGT</button>
-            <button>MAP</button>
+            <button>MAP</button> -->
         </div>
         
         <div class="tables-container">
@@ -89,6 +90,8 @@
         </table>
 
         <button class="export-button" onclick="exportTablesToExcel()">Export to Excel</button>
+        <input type="file" id="upload" class="upload-button" accept=".xlsx, .xls" style="display: none;" onchange="handleFileUpload(event)">
+        <button class="upload-button" onclick="document.getElementById('upload').click()">Upload Excel</button>
     </div>
 </body>
 </html>
