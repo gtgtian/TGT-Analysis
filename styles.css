@@ -29,7 +29,7 @@ body::before {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.4); /* More transparent background */
+    background: rgba(255, 255, 255, 0.7); /* More transparent background */
 }
 
 .header {
@@ -37,7 +37,7 @@ body::before {
     font-weight: bold;
     margin-bottom: 10px;
     color: #333; /* Updated text color */
-    font-family: 'Papyrus', 'fantasy'; /* Specific fonts */
+    font-family: "Roboto", sans-serif; /* Specific fonts */
     text-transform: uppercase; /* Uppercase text */
     letter-spacing: 1.5px; /* Spacing between letters */
 }
@@ -47,9 +47,9 @@ body::before {
     font-weight: bold;
     margin-bottom: 10px;
     color: white; /* Updated text color to white */
-    font-family: 'Impact', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Specific fonts */
+    font-family: "Roboto", sans-serif;  /* Specific fonts */
     text-transform: uppercase; /* Uppercase text */
-    letter-spacing: 1.5px; /* Spacing between letters */
+    letter-spacing: 3.5px; /* Spacing between letters */
     background: #8b0000; /* Maroon background color */
     padding: 10px; /* Padding inside the border */
     display: inline-block; /* Ensure the border wraps around the text */
@@ -58,7 +58,8 @@ body::before {
 
 .top-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the buttons */
+    gap: 200px; /* Add space between each button */
     margin-bottom: 10px;
 }
 
@@ -107,7 +108,7 @@ th {
     margin-top: 20px;
 }
 
-.export-button {
+.export-button, .upload-button {
     margin-top: 20px;
     padding: 10px;
     background: #006400;
