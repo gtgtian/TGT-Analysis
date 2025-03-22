@@ -13,7 +13,7 @@ function calculateTgtListCounts() {
             counts[tgtList] = { LRV: 0, GUNS: 0, AIR: 0 };
         }
 
-        if (engmtBy.includes('GRAD')) {
+        if (engmtBy == 'G' || engmtBy == 'S' || engmtBy == 'P') {
             counts[tgtList].LRV++;
         } else if (engmtBy.includes('REGT')) {
             counts[tgtList].GUNS++;
